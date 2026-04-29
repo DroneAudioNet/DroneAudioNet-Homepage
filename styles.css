@@ -251,7 +251,7 @@ code {
 
 .cmp-table {
   width: 100%;
-  min-width: 1100px;
+  min-width: 1250px;
   border-collapse: collapse;
 }
 
@@ -272,6 +272,10 @@ code {
   vertical-align: top;
   padding: 12px 10px;
   border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.cmp-table tbody td {
+  min-width: 160px;
 }
 
 .cmp-table .rowhead {
@@ -295,9 +299,9 @@ code {
 .cell-img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
-  border: 1px solid rgba(15, 23, 42, 0.14);
-  background: rgba(15, 23, 42, 0.02);
+  border-radius: 0;
+  border: none;
+  background: transparent;
   display: block;
 }
 
