@@ -249,10 +249,25 @@ code {
   -webkit-overflow-scrolling: touch;
 }
 
+.example-subhead {
+  margin: 18px 0 8px;
+  font-size: 17px;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+}
+
+.example-subhead:first-of-type {
+  margin-top: 8px;
+}
+
 .cmp-table {
   width: 100%;
   min-width: 1250px;
   border-collapse: collapse;
+}
+
+.cmp-table-wide {
+  min-width: 1480px;
 }
 
 .cmp-table thead th {

@@ -21,7 +21,6 @@
 
         <nav class="links" aria-label="Project links">
           <a class="btn btn-dark" href="https://github.com/DroneAudioNet/DroneAudioNet-Homepage" target="_blank" rel="noopener noreferrer">Code</a>
-          <a class="btn btn-dark" href="https://arxiv.org/abs/2308.05037" target="_blank" rel="noopener noreferrer">Paper</a>
           <a class="btn btn-dark" href="#examples">Examples</a>
           <a class="btn btn-dark" href="https://huggingface.co/" target="_blank" rel="noopener noreferrer">Model</a>
           <a class="btn btn-dark" href="#citations">Citations</a>
@@ -60,214 +59,462 @@
       <section class="section" aria-labelledby="examples">
         <h2 id="examples">Examples</h2>
         <p class="hint">
-          This section compares unprocessed <strong>Mixture</strong> with outputs from
-          <strong>USS</strong>, <strong>ZeroShot</strong>, <strong>AudioSep</strong>,
-          <strong>AudioSep-FT</strong>, and <strong>DN_6</strong>. Each cell shows the audio
-          (top) and its spectrogram (bottom). Replace the placeholder file paths under
-          <code>audio/</code> and <code>spectrogram/</code> with your real materials.
+          For each input SNR bucket, we show three sound classes (Human Vocal, Human Non-Vocal, Non-Human). Each cell contains audio (top) and a spectrogram (bottom). Expected paths: <code>audio/&lt;snr&gt;/&lt;class&gt;/&lt;sample&gt;/&lt;method&gt;.wav</code> and matching spectrogram PNGs under <code>spectrogram/</code> (placeholder image shown until generated).
         </p>
 
-        <div class="snr-block" aria-label="High SNR bucket">
+        <div class="snr-block" aria-label="Input SNR: -10 dB to 0 dB">
           <div class="snr-header">
-            <div class="snr-title">High SNR</div>
-            <div class="snr-note">SNR &gt; -20 dB</div>
+            <div class="snr-title">Input SNR: -10 dB to 0 dB</div>
           </div>
-          <div class="snr-scroll" aria-label="High SNR comparison table">
-            <table class="cmp-table">
+          <h3 class="example-subhead">Human Vocal</h3>
+          <div class="snr-scroll" aria-label="Input SNR: -10 dB to 0 dB Human Vocal">
+            <table class="cmp-table cmp-table-wide">
               <thead>
                 <tr>
-                  <th scope="col" class="rowhead">Source</th>
-                  <th scope="col">Mixture</th>
-                  <th scope="col">USS</th>
-                  <th scope="col">ZeroShot</th>
-                  <th scope="col">AudioSep</th>
-                  <th scope="col">AudioSep-FT</th>
-                  <th scope="col">DN_6</th>
+                  <th scope="col" class="rowhead">Sample</th>
+                  <th scope="col">clean</th>
+                  <th scope="col">noisy</th>
+                  <th scope="col">uss</th>
+                  <th scope="col">zeroshot</th>
+                  <th scope="col">audiosep</th>
+                  <th scope="col">audiosep-finetuned</th>
+                  <th scope="col">droneaudionet</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row" class="rowhead">male</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/male/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/male/mixture.png" alt="High SNR male mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/male/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/male/uss.png" alt="High SNR male USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/male/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/male/zeroshot.png" alt="High SNR male ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/male/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/male/audiosep.png" alt="High SNR male AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/male/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/male/audiosep-ft.png" alt="High SNR male AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/male/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/male/dn_6.png" alt="High SNR male DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 1</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample1/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 1 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample1/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 1 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample1/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 1 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample1/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 1 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample1/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 1 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample1/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 1 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample1/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 1 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="rowhead">female</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/female/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/female/mixture.png" alt="High SNR female mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/female/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/female/uss.png" alt="High SNR female USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/female/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/female/zeroshot.png" alt="High SNR female ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/female/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/female/audiosep.png" alt="High SNR female AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/female/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/female/audiosep-ft.png" alt="High SNR female AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/female/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/female/dn_6.png" alt="High SNR female DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 2</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample2/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 2 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample2/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 2 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample2/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 2 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample2/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 2 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample2/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 2 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample2/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 2 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample2/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 2 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="rowhead">crying</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/crying/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/crying/mixture.png" alt="High SNR crying mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/crying/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/crying/uss.png" alt="High SNR crying USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/crying/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/crying/zeroshot.png" alt="High SNR crying ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/crying/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/crying/audiosep.png" alt="High SNR crying AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/crying/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/crying/audiosep-ft.png" alt="High SNR crying AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/crying/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/crying/dn_6.png" alt="High SNR crying DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 3</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample3/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 3 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample3/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 3 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample3/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 3 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample3/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 3 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample3/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 3 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample3/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 3 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_vocal/sample3/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Vocal Sample 3 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 class="example-subhead">Human Non-Vocal</h3>
+          <div class="snr-scroll" aria-label="Input SNR: -10 dB to 0 dB Human Non-Vocal">
+            <table class="cmp-table cmp-table-wide">
+              <thead>
+                <tr>
+                  <th scope="col" class="rowhead">Sample</th>
+                  <th scope="col">clean</th>
+                  <th scope="col">noisy</th>
+                  <th scope="col">uss</th>
+                  <th scope="col">zeroshot</th>
+                  <th scope="col">audiosep</th>
+                  <th scope="col">audiosep-finetuned</th>
+                  <th scope="col">droneaudionet</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="rowhead">Sample 1</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample1/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 1 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample1/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 1 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample1/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 1 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample1/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 1 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample1/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 1 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample1/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 1 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample1/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 1 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="rowhead">human<br />non-vocal sounds</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/human_nonvocal/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/human_nonvocal/mixture.png" alt="High SNR human non-vocal sounds mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/human_nonvocal/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/human_nonvocal/uss.png" alt="High SNR human non-vocal sounds USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/human_nonvocal/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/human_nonvocal/zeroshot.png" alt="High SNR human non-vocal sounds ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/human_nonvocal/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/human_nonvocal/audiosep.png" alt="High SNR human non-vocal sounds AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/human_nonvocal/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/human_nonvocal/audiosep-ft.png" alt="High SNR human non-vocal sounds AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/human_nonvocal/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/human_nonvocal/dn_6.png" alt="High SNR human non-vocal sounds DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 2</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample2/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 2 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample2/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 2 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample2/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 2 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample2/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 2 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample2/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 2 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample2/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 2 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample2/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 2 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="rowhead">non-human sounds</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/nonhuman/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/nonhuman/mixture.png" alt="High SNR non-human sounds mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/nonhuman/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/nonhuman/uss.png" alt="High SNR non-human sounds USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/nonhuman/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/nonhuman/zeroshot.png" alt="High SNR non-human sounds ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/nonhuman/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/nonhuman/audiosep.png" alt="High SNR non-human sounds AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/nonhuman/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/nonhuman/audiosep-ft.png" alt="High SNR non-human sounds AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/high/nonhuman/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/high/nonhuman/dn_6.png" alt="High SNR non-human sounds DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 3</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample3/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 3 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample3/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 3 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample3/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 3 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample3/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 3 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample3/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 3 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample3/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 3 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/human_nonvocal/sample3/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Human Non-Vocal Sample 3 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 class="example-subhead">Non-Human</h3>
+          <div class="snr-scroll" aria-label="Input SNR: -10 dB to 0 dB Non-Human">
+            <table class="cmp-table cmp-table-wide">
+              <thead>
+                <tr>
+                  <th scope="col" class="rowhead">Sample</th>
+                  <th scope="col">clean</th>
+                  <th scope="col">noisy</th>
+                  <th scope="col">uss</th>
+                  <th scope="col">zeroshot</th>
+                  <th scope="col">audiosep</th>
+                  <th scope="col">audiosep-finetuned</th>
+                  <th scope="col">droneaudionet</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="rowhead">Sample 1</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample1/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 1 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample1/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 1 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample1/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 1 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample1/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 1 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample1/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 1 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample1/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 1 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample1/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 1 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="rowhead">Sample 2</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample2/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 2 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample2/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 2 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample2/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 2 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample2/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 2 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample2/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 2 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample2/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 2 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample2/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 2 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="rowhead">Sample 3</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample3/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 3 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample3/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 3 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample3/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 3 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample3/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 3 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample3/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 3 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample3/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 3 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg10_0/nonhuman/sample3/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB Non-Human Sample 3 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        <div class="snr-block" aria-label="Middle SNR bucket">
+        <div class="snr-block" aria-label="Input SNR: -20 dB to -10 dB">
           <div class="snr-header">
-            <div class="snr-title">Middle SNR</div>
-            <div class="snr-note">-40 dB &le; SNR &le; -20 dB</div>
+            <div class="snr-title">Input SNR: -20 dB to -10 dB</div>
           </div>
-          <div class="snr-scroll" aria-label="Middle SNR comparison table">
-            <table class="cmp-table">
+          <h3 class="example-subhead">Human Vocal</h3>
+          <div class="snr-scroll" aria-label="Input SNR: -20 dB to -10 dB Human Vocal">
+            <table class="cmp-table cmp-table-wide">
               <thead>
                 <tr>
-                  <th scope="col" class="rowhead">Source</th>
-                  <th scope="col">Mixture</th>
-                  <th scope="col">USS</th>
-                  <th scope="col">ZeroShot</th>
-                  <th scope="col">AudioSep</th>
-                  <th scope="col">AudioSep-FT</th>
-                  <th scope="col">DN_6</th>
+                  <th scope="col" class="rowhead">Sample</th>
+                  <th scope="col">clean</th>
+                  <th scope="col">noisy</th>
+                  <th scope="col">uss</th>
+                  <th scope="col">zeroshot</th>
+                  <th scope="col">audiosep</th>
+                  <th scope="col">audiosep-finetuned</th>
+                  <th scope="col">droneaudionet</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row" class="rowhead">male</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/male/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/male/mixture.png" alt="Middle SNR male mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/male/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/male/uss.png" alt="Middle SNR male USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/male/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/male/zeroshot.png" alt="Middle SNR male ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/male/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/male/audiosep.png" alt="Middle SNR male AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/male/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/male/audiosep-ft.png" alt="Middle SNR male AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/male/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/male/dn_6.png" alt="Middle SNR male DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 1</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample1/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 1 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample1/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 1 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample1/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 1 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample1/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 1 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample1/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 1 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample1/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 1 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample1/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 1 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="rowhead">female</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/female/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/female/mixture.png" alt="Middle SNR female mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/female/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/female/uss.png" alt="Middle SNR female USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/female/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/female/zeroshot.png" alt="Middle SNR female ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/female/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/female/audiosep.png" alt="Middle SNR female AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/female/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/female/audiosep-ft.png" alt="Middle SNR female AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/female/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/female/dn_6.png" alt="Middle SNR female DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 2</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample2/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 2 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample2/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 2 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample2/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 2 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample2/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 2 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample2/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 2 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample2/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 2 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample2/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 2 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="rowhead">crying</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/crying/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/crying/mixture.png" alt="Middle SNR crying mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/crying/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/crying/uss.png" alt="Middle SNR crying USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/crying/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/crying/zeroshot.png" alt="Middle SNR crying ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/crying/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/crying/audiosep.png" alt="Middle SNR crying AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/crying/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/crying/audiosep-ft.png" alt="Middle SNR crying AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/crying/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/crying/dn_6.png" alt="Middle SNR crying DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 3</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample3/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 3 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample3/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 3 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample3/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 3 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample3/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 3 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample3/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 3 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample3/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 3 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_vocal/sample3/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Vocal Sample 3 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 class="example-subhead">Human Non-Vocal</h3>
+          <div class="snr-scroll" aria-label="Input SNR: -20 dB to -10 dB Human Non-Vocal">
+            <table class="cmp-table cmp-table-wide">
+              <thead>
+                <tr>
+                  <th scope="col" class="rowhead">Sample</th>
+                  <th scope="col">clean</th>
+                  <th scope="col">noisy</th>
+                  <th scope="col">uss</th>
+                  <th scope="col">zeroshot</th>
+                  <th scope="col">audiosep</th>
+                  <th scope="col">audiosep-finetuned</th>
+                  <th scope="col">droneaudionet</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="rowhead">Sample 1</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample1/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 1 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample1/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 1 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample1/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 1 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample1/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 1 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample1/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 1 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample1/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 1 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample1/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 1 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="rowhead">human<br />non-vocal sounds</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/human_nonvocal/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/human_nonvocal/mixture.png" alt="Middle SNR human non-vocal sounds mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/human_nonvocal/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/human_nonvocal/uss.png" alt="Middle SNR human non-vocal sounds USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/human_nonvocal/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/human_nonvocal/zeroshot.png" alt="Middle SNR human non-vocal sounds ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/human_nonvocal/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/human_nonvocal/audiosep.png" alt="Middle SNR human non-vocal sounds AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/human_nonvocal/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/human_nonvocal/audiosep-ft.png" alt="Middle SNR human non-vocal sounds AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/human_nonvocal/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/human_nonvocal/dn_6.png" alt="Middle SNR human non-vocal sounds DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 2</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample2/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 2 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample2/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 2 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample2/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 2 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample2/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 2 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample2/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 2 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample2/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 2 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample2/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 2 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="rowhead">non-human sounds</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/nonhuman/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/nonhuman/mixture.png" alt="Middle SNR non-human sounds mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/nonhuman/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/nonhuman/uss.png" alt="Middle SNR non-human sounds USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/nonhuman/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/nonhuman/zeroshot.png" alt="Middle SNR non-human sounds ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/nonhuman/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/nonhuman/audiosep.png" alt="Middle SNR non-human sounds AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/nonhuman/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/nonhuman/audiosep-ft.png" alt="Middle SNR non-human sounds AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/middle/nonhuman/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/middle/nonhuman/dn_6.png" alt="Middle SNR non-human sounds DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 3</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample3/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 3 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample3/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 3 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample3/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 3 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample3/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 3 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample3/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 3 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample3/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 3 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/human_nonvocal/sample3/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Human Non-Vocal Sample 3 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 class="example-subhead">Non-Human</h3>
+          <div class="snr-scroll" aria-label="Input SNR: -20 dB to -10 dB Non-Human">
+            <table class="cmp-table cmp-table-wide">
+              <thead>
+                <tr>
+                  <th scope="col" class="rowhead">Sample</th>
+                  <th scope="col">clean</th>
+                  <th scope="col">noisy</th>
+                  <th scope="col">uss</th>
+                  <th scope="col">zeroshot</th>
+                  <th scope="col">audiosep</th>
+                  <th scope="col">audiosep-finetuned</th>
+                  <th scope="col">droneaudionet</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="rowhead">Sample 1</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample1/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 1 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample1/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 1 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample1/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 1 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample1/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 1 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample1/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 1 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample1/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 1 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample1/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 1 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="rowhead">Sample 2</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample2/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 2 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample2/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 2 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample2/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 2 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample2/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 2 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample2/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 2 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample2/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 2 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample2/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 2 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="rowhead">Sample 3</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample3/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 3 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample3/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 3 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample3/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 3 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample3/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 3 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample3/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 3 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample3/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 3 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg20_neg10/nonhuman/sample3/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB Non-Human Sample 3 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        <div class="snr-block" aria-label="Low SNR bucket">
+        <div class="snr-block" aria-label="Input SNR: -30 dB to -20 dB">
           <div class="snr-header">
-            <div class="snr-title">Low SNR</div>
-            <div class="snr-note">-60 dB &le; SNR &le; -40 dB</div>
+            <div class="snr-title">Input SNR: -30 dB to -20 dB</div>
           </div>
-          <div class="snr-scroll" aria-label="Low SNR comparison table">
-            <table class="cmp-table">
+          <h3 class="example-subhead">Human Vocal</h3>
+          <div class="snr-scroll" aria-label="Input SNR: -30 dB to -20 dB Human Vocal">
+            <table class="cmp-table cmp-table-wide">
               <thead>
                 <tr>
-                  <th scope="col" class="rowhead">Source</th>
-                  <th scope="col">Mixture</th>
-                  <th scope="col">USS</th>
-                  <th scope="col">ZeroShot</th>
-                  <th scope="col">AudioSep</th>
-                  <th scope="col">AudioSep-FT</th>
-                  <th scope="col">DN_6</th>
+                  <th scope="col" class="rowhead">Sample</th>
+                  <th scope="col">clean</th>
+                  <th scope="col">noisy</th>
+                  <th scope="col">uss</th>
+                  <th scope="col">zeroshot</th>
+                  <th scope="col">audiosep</th>
+                  <th scope="col">audiosep-finetuned</th>
+                  <th scope="col">droneaudionet</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row" class="rowhead">male</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/male/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/male/mixture.png" alt="Low SNR male mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/male/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/male/uss.png" alt="Low SNR male USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/male/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/male/zeroshot.png" alt="Low SNR male ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/male/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/male/audiosep.png" alt="Low SNR male AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/male/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/male/audiosep-ft.png" alt="Low SNR male AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/male/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/male/dn_6.png" alt="Low SNR male DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 1</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample1/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 1 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample1/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 1 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample1/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 1 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample1/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 1 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample1/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 1 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample1/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 1 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample1/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 1 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="rowhead">female</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/female/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/female/mixture.png" alt="Low SNR female mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/female/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/female/uss.png" alt="Low SNR female USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/female/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/female/zeroshot.png" alt="Low SNR female ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/female/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/female/audiosep.png" alt="Low SNR female AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/female/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/female/audiosep-ft.png" alt="Low SNR female AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/female/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/female/dn_6.png" alt="Low SNR female DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 2</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample2/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 2 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample2/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 2 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample2/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 2 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample2/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 2 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample2/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 2 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample2/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 2 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample2/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 2 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="rowhead">crying</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/crying/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/crying/mixture.png" alt="Low SNR crying mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/crying/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/crying/uss.png" alt="Low SNR crying USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/crying/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/crying/zeroshot.png" alt="Low SNR crying ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/crying/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/crying/audiosep.png" alt="Low SNR crying AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/crying/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/crying/audiosep-ft.png" alt="Low SNR crying AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/crying/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/crying/dn_6.png" alt="Low SNR crying DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 3</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample3/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 3 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample3/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 3 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample3/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 3 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample3/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 3 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample3/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 3 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample3/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 3 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_vocal/sample3/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Vocal Sample 3 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 class="example-subhead">Human Non-Vocal</h3>
+          <div class="snr-scroll" aria-label="Input SNR: -30 dB to -20 dB Human Non-Vocal">
+            <table class="cmp-table cmp-table-wide">
+              <thead>
+                <tr>
+                  <th scope="col" class="rowhead">Sample</th>
+                  <th scope="col">clean</th>
+                  <th scope="col">noisy</th>
+                  <th scope="col">uss</th>
+                  <th scope="col">zeroshot</th>
+                  <th scope="col">audiosep</th>
+                  <th scope="col">audiosep-finetuned</th>
+                  <th scope="col">droneaudionet</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="rowhead">Sample 1</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample1/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 1 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample1/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 1 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample1/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 1 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample1/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 1 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample1/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 1 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample1/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 1 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample1/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 1 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="rowhead">human<br />non-vocal sounds</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/human_nonvocal/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/human_nonvocal/mixture.png" alt="Low SNR human non-vocal sounds mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/human_nonvocal/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/human_nonvocal/uss.png" alt="Low SNR human non-vocal sounds USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/human_nonvocal/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/human_nonvocal/zeroshot.png" alt="Low SNR human non-vocal sounds ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/human_nonvocal/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/human_nonvocal/audiosep.png" alt="Low SNR human non-vocal sounds AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/human_nonvocal/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/human_nonvocal/audiosep-ft.png" alt="Low SNR human non-vocal sounds AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/human_nonvocal/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/human_nonvocal/dn_6.png" alt="Low SNR human non-vocal sounds DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 2</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample2/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 2 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample2/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 2 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample2/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 2 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample2/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 2 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample2/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 2 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample2/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 2 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample2/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 2 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
                 <tr>
-                  <th scope="row" class="rowhead">non-human sounds</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/nonhuman/mixture.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/nonhuman/mixture.png" alt="Low SNR non-human sounds mixture spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/nonhuman/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/nonhuman/uss.png" alt="Low SNR non-human sounds USS spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/nonhuman/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/nonhuman/zeroshot.png" alt="Low SNR non-human sounds ZeroShot spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/nonhuman/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/nonhuman/audiosep.png" alt="Low SNR non-human sounds AudioSep spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/nonhuman/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/nonhuman/audiosep-ft.png" alt="Low SNR non-human sounds AudioSep-FT spectrogram" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/low/nonhuman/dn_6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/low/nonhuman/dn_6.png" alt="Low SNR non-human sounds DN_6 spectrogram" loading="lazy" /></div></td>
+                  <th scope="row" class="rowhead">Sample 3</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample3/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 3 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample3/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 3 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample3/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 3 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample3/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 3 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample3/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 3 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample3/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 3 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/human_nonvocal/sample3/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Human Non-Vocal Sample 3 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 class="example-subhead">Non-Human</h3>
+          <div class="snr-scroll" aria-label="Input SNR: -30 dB to -20 dB Non-Human">
+            <table class="cmp-table cmp-table-wide">
+              <thead>
+                <tr>
+                  <th scope="col" class="rowhead">Sample</th>
+                  <th scope="col">clean</th>
+                  <th scope="col">noisy</th>
+                  <th scope="col">uss</th>
+                  <th scope="col">zeroshot</th>
+                  <th scope="col">audiosep</th>
+                  <th scope="col">audiosep-finetuned</th>
+                  <th scope="col">droneaudionet</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="rowhead">Sample 1</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample1/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 1 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample1/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 1 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample1/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 1 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample1/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 1 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample1/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 1 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample1/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 1 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample1/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 1 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="rowhead">Sample 2</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample2/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 2 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample2/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 2 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample2/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 2 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample2/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 2 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample2/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 2 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample2/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 2 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample2/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 2 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="rowhead">Sample 3</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample3/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 3 clean spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample3/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 3 noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample3/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 3 uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample3/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 3 zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample3/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 3 audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample3/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 3 audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/snr_neg30_neg20/nonhuman/sample3/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB Non-Human Sample 3 droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
               </tbody>
             </table>
@@ -292,6 +539,14 @@
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <th scope="row" class="rowhead">original</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/male/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon male original spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/female/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon female original spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/crying/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon crying original spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/human_sounds/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon human sounds original spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/nonhuman_sounds/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon non human sounds original spectrogram (placeholder)" loading="lazy" /></div></td>
+                </tr>
                 <tr>
                   <th scope="row" class="rowhead">AudioSep</th>
                   <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/male/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon male AudioSep spectrogram (placeholder)" loading="lazy" /></div></td>
