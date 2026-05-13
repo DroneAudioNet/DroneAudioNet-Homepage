@@ -12,3 +12,11 @@ tmp/
 Thumbs.db
 desktop.ini
 
+################################################################################
+# Automation state (generated locally)
+################################################################################
+upload_raw_samples_state.json
+upload_raw_samples_state.*
+
+__pycache__/
+
