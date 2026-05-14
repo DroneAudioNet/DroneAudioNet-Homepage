@@ -320,6 +320,15 @@ code {
   display: block;
 }
 
+/* ---------------------------------------------------------------------------
+   Spectrograms (comparison tables): temporarily hidden — no images yet.
+   HTML <img class="cell-img" …> stays in place; only display is turned off.
+   To show them again: delete or comment out the rule below.
+   --------------------------------------------------------------------------- */
+.cell .cell-img {
+  display: none;
+}
+
 .footer {
   margin-top: 34px;
   color: var(--faint);
