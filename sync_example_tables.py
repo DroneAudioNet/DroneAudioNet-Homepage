@@ -21,8 +21,8 @@ SNR_BLOCKS: list[tuple[str, str]] = [
     ("Low SNR", "Input SNR: -30 dB to -20 dB"),
 ]
 
+# Omit clean.wav until clean references are available (matches index thead).
 METHODS: list[tuple[str, str]] = [
-    ("clean.wav", "clean"),
     ("noisy.wav", "noisy"),
     ("uss.wav", "uss"),
     ("zeroshot.wav", "zeroshot"),
@@ -45,7 +45,7 @@ def build_rows(snr_key: str, alt_bucket: str, examples: list[str]) -> str:
     if not examples:
         lines.append(
             "                <tr>\n"
-            f"                  <td colspan=\"8\" class=\"hint\">No example folders under "
+            f"                  <td colspan=\"7\" class=\"hint\">No example folders under "
             f"<code>audio/{html.escape(snr_key)}/HV/</code> yet. Add subfolders (names become "
             f"the first column), run <code>python upload_raw_samples.py</code>, then re-run "
             f"<code>python sync_example_tables.py</code>.</td>\n"

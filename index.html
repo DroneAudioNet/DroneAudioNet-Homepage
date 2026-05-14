@@ -59,7 +59,7 @@
       <section class="section" aria-labelledby="examples">
         <h2 id="examples">Examples</h2>
         <p class="hint">
-          For each input SNR bucket, we show one comparison table. Each cell contains audio (top) and a spectrogram (bottom, hidden in CSS until images are ready). Expected audio paths (parallel to <code>audio/Dregon/</code>): <code>audio/&lt;High SNR | Middle SNR | Low SNR&gt;/HV/&lt;example&gt;/&lt;method&gt;.wav</code> — each row is one <strong>example</strong> (one subfolder under <code>HV/</code>; the folder name is the first column). After adding audio, run <code>python sync_example_tables.py</code> to refresh row names and row count from disk. Other class folders (<code>HNV/</code>, <code>NH/</code>) follow the same pattern if you add more tables later. Matching spectrogram PNGs under <code>spectrogram/</code>.
+          For each input SNR bucket, we show one comparison table. Each cell contains audio (top) and a spectrogram (bottom, hidden in CSS until images are ready). Expected audio paths (parallel to <code>audio/Dregon/</code>): <code>audio/&lt;High SNR | Middle SNR | Low SNR&gt;/HV/&lt;example&gt;/&lt;method&gt;.wav</code> — each row is one <strong>example</strong> (one subfolder under <code>HV/</code>; the folder name is the first column). The <strong>clean</strong> column is omitted for now (no clean references yet). After adding audio, run <code>python sync_example_tables.py</code> to refresh row names and row count from disk. Other class folders (<code>HNV/</code>, <code>NH/</code>) follow the same pattern if you add more tables later. Matching spectrogram PNGs under <code>spectrogram/</code>.
         </p>
 
         <div class="snr-block" aria-label="Input SNR: -10 dB to 0 dB">
@@ -71,7 +71,6 @@
               <thead>
                 <tr>
                   <th scope="col" class="rowhead">Example</th>
-                  <th scope="col">clean</th>
                   <th scope="col">noisy</th>
                   <th scope="col">uss</th>
                   <th scope="col">zeroshot</th>
@@ -84,7 +83,6 @@
                 <!-- SNR_ROWS:High SNR -->
                 <tr>
                   <th scope="row" class="rowhead">crying</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB crying clean spectrogram (placeholder)" loading="lazy" /></div></td>
                   <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB crying noisy spectrogram (placeholder)" loading="lazy" /></div></td>
                   <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB crying uss spectrogram (placeholder)" loading="lazy" /></div></td>
                   <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB crying zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
@@ -94,7 +92,6 @@
                 </tr>
                 <tr>
                   <th scope="row" class="rowhead">female</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB female clean spectrogram (placeholder)" loading="lazy" /></div></td>
                   <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB female noisy spectrogram (placeholder)" loading="lazy" /></div></td>
                   <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB female uss spectrogram (placeholder)" loading="lazy" /></div></td>
                   <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB female zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
@@ -117,7 +114,6 @@
               <thead>
                 <tr>
                   <th scope="col" class="rowhead">Example</th>
-                  <th scope="col">clean</th>
                   <th scope="col">noisy</th>
                   <th scope="col">uss</th>
                   <th scope="col">zeroshot</th>
@@ -130,7 +126,6 @@
                 <!-- SNR_ROWS:Middle SNR -->
                 <tr>
                   <th scope="row" class="rowhead">crying</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/clean.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB crying clean spectrogram (placeholder)" loading="lazy" /></div></td>
                   <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB crying noisy spectrogram (placeholder)" loading="lazy" /></div></td>
                   <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB crying uss spectrogram (placeholder)" loading="lazy" /></div></td>
                   <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB crying zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
@@ -153,7 +148,6 @@
               <thead>
                 <tr>
                   <th scope="col" class="rowhead">Example</th>
-                  <th scope="col">clean</th>
                   <th scope="col">noisy</th>
                   <th scope="col">uss</th>
                   <th scope="col">zeroshot</th>
@@ -165,7 +159,13 @@
               <tbody>
                 <!-- SNR_ROWS:Low SNR -->
                 <tr>
-                  <td colspan="8" class="hint">No example folders under <code>audio/Low SNR/HV/</code> yet. Add subfolders (names become the first column), run <code>python upload_raw_samples.py</code>, then re-run <code>python sync_example_tables.py</code>.</td>
+                  <th scope="row" class="rowhead">crying</th>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB crying noisy spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB crying uss spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB crying zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB crying audiosep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB crying audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB crying droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
                 </tr>
                 <!-- /SNR_ROWS:Low SNR -->
               </tbody>
