@@ -2,7 +2,9 @@
 Regenerate the three HV example tables in index.html from disk layout.
 
 Each row = one subfolder under ``audio/<High|Middle|Low SNR>/HV/<example>/``.
-First column text = folder name. Run after adding audio or example folders:
+First column text = folder name. Cells only embed ``<audio>`` when the matching ``.wav``
+exists under ``audio/`` (otherwise an em dash, e.g. missing clean/audiosep clips).
+Run after adding audio or example folders:
 
   python sync_example_tables.py
 
@@ -40,7 +42,7 @@ def list_example_dirs(audio_dir: Path, snr_key: str) -> list[str]:
     return sorted(names, key=str.lower)
 
 
-def build_rows(snr_key: str, alt_bucket: str, examples: list[str]) -> str:
+def build_rows(snr_key: str, alt_bucket: str, examples: list[str], audio_dir: Path) -> str:
     lines: list[str] = []
     if not examples:
         lines.append(
@@ -58,15 +60,21 @@ def build_rows(snr_key: str, alt_bucket: str, examples: list[str]) -> str:
         lines.append("                <tr>")
         lines.append(f'                  <th scope="row" class="rowhead">{ex_esc}</th>')
         for wav, label in METHODS:
-            alt = html.escape(f"{alt_bucket} {ex} {label} spectrogram (placeholder)", quote=True)
-            src = f"./audio/{snr_key}/HV/{ex}/{wav}"
-            src_esc = html.escape(src, quote=True)
-            lines.append(
-                "                  <td><div class=\"cell\">"
-                f"<audio controls preload=\"none\"><source src=\"{src_esc}\" type=\"audio/wav\" /></audio>"
-                f"<img class=\"cell-img\" src=\"./spectrogram/mic3_8array-up-File1_trad.png\" "
-                f"alt=\"{alt}\" loading=\"lazy\" /></div></td>"
-            )
+            abs_wav = audio_dir / snr_key / "HV" / ex / wav
+            if abs_wav.is_file():
+                alt = html.escape(f"{alt_bucket} {ex} {label} spectrogram (placeholder)", quote=True)
+                src = f"./audio/{snr_key}/HV/{ex}/{wav}"
+                src_esc = html.escape(src, quote=True)
+                lines.append(
+                    "                  <td><div class=\"cell\">"
+                    f"<audio controls preload=\"none\"><source src=\"{src_esc}\" type=\"audio/wav\" /></audio>"
+                    f"<img class=\"cell-img\" src=\"./spectrogram/mic3_8array-up-File1_trad.png\" "
+                    f"alt=\"{alt}\" loading=\"lazy\" /></div></td>"
+                )
+            else:
+                lines.append(
+                    "                  <td class=\"cell cell-missing\"><span class=\"hint\">—</span></td>"
+                )
         lines.append("                </tr>")
     return "\n".join(lines)
 
@@ -98,7 +106,7 @@ def main() -> None:
 
     for snr_key, alt_bucket in SNR_BLOCKS:
         examples = list_example_dirs(audio_dir, snr_key)
-        block = build_rows(snr_key, alt_bucket, examples)
+        block = build_rows(snr_key, alt_bucket, examples, audio_dir)
         if args.dry_run:
             print(f"=== {snr_key} ({len(examples)} example dir(s)) ===")
             print(block)

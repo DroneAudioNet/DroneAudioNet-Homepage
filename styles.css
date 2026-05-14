@@ -302,6 +302,11 @@ code {
   word-break: break-word;
 }
 
+.cmp-table .cell-missing {
+  text-align: center;
+  color: var(--faint);
+}
+
 .cell {
   display: grid;
   gap: 8px;
