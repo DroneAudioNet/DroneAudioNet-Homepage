@@ -6,7 +6,7 @@ First column text = folder name. Cells only embed ``<audio>`` when the matching 
 exists under ``audio/`` (otherwise an em dash, e.g. missing clean/audiosep clips).
 Run after adding audio or example folders:
 
-  python sync_example_tables.py
+  python scripts/sync_example_tables.py
 
 Optional: ``--dry-run`` prints planned rows without writing index.html.
 """
@@ -42,6 +42,16 @@ def list_example_dirs(audio_dir: Path, snr_key: str) -> list[str]:
     return sorted(names, key=str.lower)
 
 
+def _spectrogram_img_src(audio_dir: Path, snr_key: str, ex: str, wav: str) -> str:
+    """Prefer per-clip PNG under spectrogram/ if present; else legacy placeholder."""
+    stem = Path(wav).stem
+    rel = Path(snr_key) / "HV" / ex / f"{stem}.png"
+    spec_path = audio_dir.parent / "spectrogram" / rel
+    if spec_path.is_file():
+        return f"./spectrogram/{rel.as_posix()}"
+    return "./spectrogram/mic3_8array-up-File1_trad.png"
+
+
 def build_rows(snr_key: str, alt_bucket: str, examples: list[str], audio_dir: Path) -> str:
     lines: list[str] = []
     if not examples:
@@ -49,8 +59,8 @@ def build_rows(snr_key: str, alt_bucket: str, examples: list[str], audio_dir: Pa
             "                <tr>\n"
             f"                  <td colspan=\"7\" class=\"hint\">No example folders under "
             f"<code>audio/{html.escape(snr_key)}/HV/</code> yet. Add subfolders (names become "
-            f"the first column), run <code>python upload_raw_samples.py</code>, then re-run "
-            f"<code>python sync_example_tables.py</code>.</td>\n"
+            f"the first column), run <code>python scripts/upload_raw_samples.py</code>, then re-run "
+            f"<code>python scripts/sync_example_tables.py</code>.</td>\n"
             "                </tr>"
         )
         return "\n".join(lines)
@@ -62,13 +72,15 @@ def build_rows(snr_key: str, alt_bucket: str, examples: list[str], audio_dir: Pa
         for wav, label in METHODS:
             abs_wav = audio_dir / snr_key / "HV" / ex / wav
             if abs_wav.is_file():
-                alt = html.escape(f"{alt_bucket} {ex} {label} spectrogram (placeholder)", quote=True)
+                alt = html.escape(f"{alt_bucket} {ex} {label} spectrogram", quote=True)
                 src = f"./audio/{snr_key}/HV/{ex}/{wav}"
                 src_esc = html.escape(src, quote=True)
+                img_src = _spectrogram_img_src(audio_dir, snr_key, ex, wav)
+                img_esc = html.escape(img_src, quote=True)
                 lines.append(
                     "                  <td><div class=\"cell\">"
                     f"<audio controls preload=\"none\"><source src=\"{src_esc}\" type=\"audio/wav\" /></audio>"
-                    f"<img class=\"cell-img\" src=\"./spectrogram/mic3_8array-up-File1_trad.png\" "
+                    f"<img class=\"cell-img\" src=\"{img_esc}\" "
                     f"alt=\"{alt}\" loading=\"lazy\" /></div></td>"
                 )
             else:
@@ -99,9 +111,9 @@ def main() -> None:
     parser.add_argument("--index", default="index.html", type=Path)
     args = parser.parse_args()
 
-    repo = Path(__file__).resolve().parent
-    audio_dir = (repo / args.audio_dir).resolve()
-    index_path = (repo / args.index).resolve()
+    repo_root = Path(__file__).resolve().parent.parent
+    audio_dir = (repo_root / args.audio_dir).resolve()
+    index_path = (repo_root / args.index).resolve()
     text = index_path.read_text(encoding="utf-8")
 
     for snr_key, alt_bucket in SNR_BLOCKS:

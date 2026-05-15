@@ -105,6 +105,13 @@ body {
   letter-spacing: -0.01em;
 }
 
+.abstract-body {
+  margin: 0 0 14px;
+  line-height: 1.55;
+  text-align: justify;
+  hyphens: auto;
+}
+
 .hint {
   margin: 0 0 14px;
   color: var(--faint);
@@ -323,15 +330,6 @@ code {
   border: none;
   background: transparent;
   display: block;
-}
-
-/* ---------------------------------------------------------------------------
-   Spectrograms (comparison tables): temporarily hidden — no images yet.
-   HTML <img class="cell-img" …> stays in place; only display is turned off.
-   To show them again: delete or comment out the rule below.
-   --------------------------------------------------------------------------- */
-.cell .cell-img {
-  display: none;
 }
 
 .footer {

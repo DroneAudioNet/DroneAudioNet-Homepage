@@ -20,8 +20,9 @@ Each raw WAV maps to **exactly one** output path (one table cell). The SNR bucke
 from the folder in the raw path (e.g. ``high SNR/...`` → ``audio/High SNR/...``), never copied
 across SNRs. Use ``--overwrite`` only when you intend to replace an existing cell.
 
-Run: ``python upload_raw_samples.py``  (use ``--dry-run`` first). State: ``upload_raw_samples_state.json`` (gitignored).
-Then run ``python sync_example_tables.py`` so ``index.html`` table rows match ``audio/<SNR>/HV/*/`` folders.
+Run from repo root: ``python scripts/upload_raw_samples.py``  (use ``--dry-run`` first).
+State: ``upload_raw_samples_state.json`` at repo root (gitignored).
+Then run ``python scripts/sync_example_tables.py`` so ``index.html`` table rows match ``audio/<SNR>/HV/*/`` folders.
 """
 
 import argparse
@@ -207,7 +208,7 @@ def sample_folder_from_tokens(tokens: list[str]) -> str:
             raise ValueError(
                 f"Row alias {middle!r} -> sample {idx}, but only rows "
                 f"{min(SAMPLE_ROW_FOLDER)}..{max(SAMPLE_ROW_FOLDER)} are defined. "
-                f"Update SAMPLE_ROW_FOLDER in upload_raw_samples.py to match index.html."
+                f"Update SAMPLE_ROW_FOLDER in scripts/upload_raw_samples.py to match index.html."
             )
         return SAMPLE_ROW_FOLDER[idx]
     return sanitize_sample_folder(middle)
@@ -299,9 +300,25 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Crop + copy new raw WAVs into audio/ for High / Middle / Low SNR (parallel to Dregon)."
     )
-    parser.add_argument("--raw-dir", default="raw samples", help="Folder containing raw samples.")
-    parser.add_argument("--audio-dir", default="audio", help="Target folder used by index.html.")
-    parser.add_argument("--state-file", default="upload_raw_samples_state.json", help="Local processing state (auto-generated).")
+    repo_root = Path(__file__).resolve().parent.parent
+    parser.add_argument(
+        "--raw-dir",
+        type=Path,
+        default=repo_root / "raw samples",
+        help="Folder containing raw samples (default: <repo>/raw samples).",
+    )
+    parser.add_argument(
+        "--audio-dir",
+        type=Path,
+        default=repo_root / "audio",
+        help="Target folder used by index.html (default: <repo>/audio).",
+    )
+    parser.add_argument(
+        "--state-file",
+        type=Path,
+        default=repo_root / "upload_raw_samples_state.json",
+        help="Local processing state (default: <repo>/upload_raw_samples_state.json).",
+    )
     parser.add_argument("--mode", default="all", choices=["all", "high", "mid", "low"], help="Which SNR buckets to process.")
     parser.add_argument("--dry-run", action="store_true", help="Compute actions but do not write files.")
     parser.add_argument("--overwrite", action="store_true", help="Re-crop even if output exists and matches prior state.")

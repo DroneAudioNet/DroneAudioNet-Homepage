@@ -31,19 +31,23 @@
     <main class="container">
       <section class="section" aria-labelledby="abstract">
         <h2 id="abstract">Abstract</h2>
-        <p class="hint">
-          This is a placeholder abstract. We will replace it with the final version before
-          camera-ready.
-        </p>
-        <p>
-          Audition-based search and rescue with drones requires robust perception under strong,
-          non-stationary ego-noise produced by rotors and airframe vibrations. We present
-          DroneAudioNet, a noise-suppression framework that combines a lightweight neural
-          enhancement model with a task-oriented training recipe to improve downstream acoustic
-          event detection and localization. On a suite of challenging drone-recorded scenarios,
-          our approach yields consistent gains in perceptual quality and detection performance
-          compared to classical baselines and recent learning-based enhancers, while maintaining
-          low latency suitable for onboard deployment.
+        <p class="abstract-body">
+          Microphones mounted on UAVs enable aerial acoustic scene analysis applications such as
+          search-and-rescue, wildlife monitoring, and industrial inspection. However, drone rotor
+          noise often dominates the mixture signal at SNRs well below &minus;10&nbsp;dB, making
+          source recovery extremely challenging. Existing enhancement and source separation methods
+          are typically designed for near-balanced mixtures and degrade substantially in drone
+          audition settings. In this work, we propose DRONEAUDIONET, a drone noise suppression
+          method that reframes a source separation model as a drone noise estimator. To better model
+          drone-dominant mixtures, we introduce a learnable mask-scaling mechanism that allows mask
+          magnitudes beyond unity, together with an additive residual correction term for improved
+          drone estimation and source recovery. We train and evaluate our model on a publicly
+          available drone audition dataset and test generalizability on an out-of-domain dataset
+          with unseen drone hardware and flight modes. Results show that DRONEAUDIONET consistently
+          improves downstream sound classification performance, with the largest gains observed for
+          human vocal sounds. Our findings demonstrate the importance of drone-specific modeling for
+          robust aerial acoustic perception and highlight the potential of source separation methods
+          for real-world drone-assisted search-and-rescue.
         </p>
         <figure class="teaser" aria-label="Teaser image placeholder">
           <img
@@ -59,7 +63,7 @@
       <section class="section" aria-labelledby="examples">
         <h2 id="examples">Examples</h2>
         <p class="hint">
-          For each input SNR bucket, we show one comparison table. Each cell contains audio (top) and a spectrogram (bottom, hidden in CSS until images are ready). Expected audio paths (parallel to <code>audio/Dregon/</code>): <code>audio/&lt;High SNR | Middle SNR | Low SNR&gt;/HV/&lt;example&gt;/&lt;method&gt;.wav</code> — each row is one <strong>example</strong> (one subfolder under <code>HV/</code>; the folder name is the first column). The <strong>clean</strong> column is omitted until clean reference audio exists. Any method without a file on disk shows an em dash (no empty player). After adding audio, run <code>python sync_example_tables.py</code> to refresh row names and row count from disk. Other class folders (<code>HNV/</code>, <code>NH/</code>) follow the same pattern if you add more tables later. Matching spectrogram PNGs under <code>spectrogram/</code>.
+          For each input SNR bucket, we show one comparison table. Each cell contains audio (top) and a spectrogram (bottom). Expected audio paths (parallel to <code>audio/Dregon/</code>): <code>audio/&lt;High SNR | Middle SNR | Low SNR&gt;/HV/&lt;example&gt;/&lt;method&gt;.wav</code> — each row is one <strong>example</strong> (one subfolder under <code>HV/</code>; the folder name is the first column). The <strong>clean</strong> column is omitted until clean reference audio exists. Any method without a file on disk shows an em dash (no empty player). After adding audio, run <code>python scripts/sync_example_tables.py</code> to refresh row names and row count from disk. Optional: <code>python scripts/wav_to_spectrogram.py</code> then sync again to attach per-clip spectrogram PNGs. Other class folders (<code>HNV/</code>, <code>NH/</code>) follow the same pattern if you add more tables later. Matching spectrogram PNGs under <code>spectrogram/</code>.
         </p>
 
         <div class="snr-block" aria-label="Input SNR: -10 dB to 0 dB">
@@ -83,21 +87,21 @@
                 <!-- SNR_ROWS:High SNR -->
                 <tr>
                   <th scope="row" class="rowhead">crying</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB crying noisy spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB crying uss spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB crying zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td class="cell cell-missing"><span class="hint">—</span></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB crying audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB crying droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/High SNR/HV/crying/noisy.png" alt="Input SNR: -10 dB to 0 dB crying noisy spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/High SNR/HV/crying/uss.png" alt="Input SNR: -10 dB to 0 dB crying uss spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/High SNR/HV/crying/zeroshot.png" alt="Input SNR: -10 dB to 0 dB crying zeroshot spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/High SNR/HV/crying/audiosep.png" alt="Input SNR: -10 dB to 0 dB crying audiosep spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/High SNR/HV/crying/audiosep-finetuned.png" alt="Input SNR: -10 dB to 0 dB crying audiosep-finetuned spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/crying/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/High SNR/HV/crying/droneaudionet.png" alt="Input SNR: -10 dB to 0 dB crying droneaudionet spectrogram" loading="lazy" /></div></td>
                 </tr>
                 <tr>
                   <th scope="row" class="rowhead">female</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB female noisy spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB female uss spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB female zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td class="cell cell-missing"><span class="hint">—</span></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB female audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -10 dB to 0 dB female droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/High SNR/HV/female/noisy.png" alt="Input SNR: -10 dB to 0 dB female noisy spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/High SNR/HV/female/uss.png" alt="Input SNR: -10 dB to 0 dB female uss spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/High SNR/HV/female/zeroshot.png" alt="Input SNR: -10 dB to 0 dB female zeroshot spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/High SNR/HV/female/audiosep.png" alt="Input SNR: -10 dB to 0 dB female audiosep spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/High SNR/HV/female/audiosep-finetuned.png" alt="Input SNR: -10 dB to 0 dB female audiosep-finetuned spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/High SNR/HV/female/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/High SNR/HV/female/droneaudionet.png" alt="Input SNR: -10 dB to 0 dB female droneaudionet spectrogram" loading="lazy" /></div></td>
                 </tr>
                 <!-- /SNR_ROWS:High SNR -->
               </tbody>
@@ -126,12 +130,12 @@
                 <!-- SNR_ROWS:Middle SNR -->
                 <tr>
                   <th scope="row" class="rowhead">crying</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB crying noisy spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB crying uss spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB crying zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td class="cell cell-missing"><span class="hint">—</span></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB crying audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -20 dB to -10 dB crying droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Middle SNR/HV/crying/noisy.png" alt="Input SNR: -20 dB to -10 dB crying noisy spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Middle SNR/HV/crying/uss.png" alt="Input SNR: -20 dB to -10 dB crying uss spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Middle SNR/HV/crying/zeroshot.png" alt="Input SNR: -20 dB to -10 dB crying zeroshot spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Middle SNR/HV/crying/audiosep.png" alt="Input SNR: -20 dB to -10 dB crying audiosep spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Middle SNR/HV/crying/audiosep-finetuned.png" alt="Input SNR: -20 dB to -10 dB crying audiosep-finetuned spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Middle SNR/HV/crying/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Middle SNR/HV/crying/droneaudionet.png" alt="Input SNR: -20 dB to -10 dB crying droneaudionet spectrogram" loading="lazy" /></div></td>
                 </tr>
                 <!-- /SNR_ROWS:Middle SNR -->
               </tbody>
@@ -160,12 +164,12 @@
                 <!-- SNR_ROWS:Low SNR -->
                 <tr>
                   <th scope="row" class="rowhead">crying</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB crying noisy spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB crying uss spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB crying zeroshot spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td class="cell cell-missing"><span class="hint">—</span></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB crying audiosep-finetuned spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Input SNR: -30 dB to -20 dB crying droneaudionet spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/noisy.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Low SNR/HV/crying/noisy.png" alt="Input SNR: -30 dB to -20 dB crying noisy spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/uss.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Low SNR/HV/crying/uss.png" alt="Input SNR: -30 dB to -20 dB crying uss spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/zeroshot.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Low SNR/HV/crying/zeroshot.png" alt="Input SNR: -30 dB to -20 dB crying zeroshot spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Low SNR/HV/crying/audiosep.png" alt="Input SNR: -30 dB to -20 dB crying audiosep spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/audiosep-finetuned.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Low SNR/HV/crying/audiosep-finetuned.png" alt="Input SNR: -30 dB to -20 dB crying audiosep-finetuned spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Low SNR/HV/crying/droneaudionet.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Low SNR/HV/crying/droneaudionet.png" alt="Input SNR: -30 dB to -20 dB crying droneaudionet spectrogram" loading="lazy" /></div></td>
                 </tr>
                 <!-- /SNR_ROWS:Low SNR -->
               </tbody>
@@ -193,35 +197,35 @@
               <tbody>
                 <tr>
                   <th scope="row" class="rowhead">original</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/male/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon male original spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/female/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon female original spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/crying/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon crying original spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/human_sounds/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon human sounds original spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/nonhuman_sounds/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon non human sounds original spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/male/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/male/original.png" alt="Dregon male original spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/female/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/female/original.png" alt="Dregon female original spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/crying/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/crying/original.png" alt="Dregon crying original spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/human_sounds/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/human_sounds/original.png" alt="Dregon human sounds original spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/nonhuman_sounds/original.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/nonhuman_sounds/original.png" alt="Dregon non human sounds original spectrogram" loading="lazy" /></div></td>
                 </tr>
                 <tr>
                   <th scope="row" class="rowhead">AudioSep</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/male/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon male AudioSep spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/female/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon female AudioSep spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/crying/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon crying AudioSep spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/human_sounds/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon human sounds AudioSep spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/nonhuman_sounds/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon non human sounds AudioSep spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/male/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/male/audiosep.png" alt="Dregon male AudioSep spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/female/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/female/audiosep.png" alt="Dregon female AudioSep spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/crying/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/crying/audiosep.png" alt="Dregon crying AudioSep spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/human_sounds/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/human_sounds/audiosep.png" alt="Dregon human sounds AudioSep spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/nonhuman_sounds/audiosep.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/nonhuman_sounds/audiosep.png" alt="Dregon non human sounds AudioSep spectrogram" loading="lazy" /></div></td>
                 </tr>
                 <tr>
                   <th scope="row" class="rowhead">AudioSep-FT</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/male/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon male AudioSep-FT spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/female/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon female AudioSep-FT spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/crying/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon crying AudioSep-FT spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/human_sounds/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon human sounds AudioSep-FT spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/nonhuman_sounds/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon non human sounds AudioSep-FT spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/male/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/male/audiosep-ft.png" alt="Dregon male AudioSep-FT spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/female/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/female/audiosep-ft.png" alt="Dregon female AudioSep-FT spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/crying/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/crying/audiosep-ft.png" alt="Dregon crying AudioSep-FT spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/human_sounds/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/human_sounds/audiosep-ft.png" alt="Dregon human sounds AudioSep-FT spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/nonhuman_sounds/audiosep-ft.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/nonhuman_sounds/audiosep-ft.png" alt="Dregon non human sounds AudioSep-FT spectrogram" loading="lazy" /></div></td>
                 </tr>
                 <tr>
                   <th scope="row" class="rowhead">AudioSep-k=6</th>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/male/audiosep-k6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon male AudioSep k=6 spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/female/audiosep-k6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon female AudioSep k=6 spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/crying/audiosep-k6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon crying AudioSep k=6 spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/human_sounds/audiosep-k6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon human sounds AudioSep k=6 spectrogram (placeholder)" loading="lazy" /></div></td>
-                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/nonhuman_sounds/audiosep-k6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/mic3_8array-up-File1_trad.png" alt="Dregon non human sounds AudioSep k=6 spectrogram (placeholder)" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/male/audiosep-k6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/male/audiosep-k6.png" alt="Dregon male AudioSep k=6 spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/female/audiosep-k6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/female/audiosep-k6.png" alt="Dregon female AudioSep k=6 spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/crying/audiosep-k6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/crying/audiosep-k6.png" alt="Dregon crying AudioSep k=6 spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/human_sounds/audiosep-k6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/human_sounds/audiosep-k6.png" alt="Dregon human sounds AudioSep k=6 spectrogram" loading="lazy" /></div></td>
+                  <td><div class="cell"><audio controls preload="none"><source src="./audio/Dregon/nonhuman_sounds/audiosep-k6.wav" type="audio/wav" /></audio><img class="cell-img" src="./spectrogram/Dregon/nonhuman_sounds/audiosep-k6.png" alt="Dregon non human sounds AudioSep k=6 spectrogram" loading="lazy" /></div></td>
                 </tr>
               </tbody>
             </table>
