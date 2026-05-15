@@ -8,4 +8,4 @@ This repository hosts the **static project webpage** (HTML, CSS, audio examples,
 
 **To download the model checkpoints:** **[https://drive.google.com/drive/folders/1l17jAIRBSJjdzdHmjoWUZ8EjwV7oAbQq](https://drive.google.com/drive/folders/1l17jAIRBSJjdzdHmjoWUZ8EjwV7oAbQq)**
 
-For more information, see the paper’s project homepage: **[https://droneaudionet.github.io/DroneAudioNet-Homepage/](https://droneaudionet.github.io/DroneAudioNet-Homepage/)** (companion site for the paper).
+**For more information, see the paper’s project homepage:** **[https://droneaudionet.github.io/DroneAudioNet-Homepage/](https://droneaudionet.github.io/DroneAudioNet-Homepage/)**
