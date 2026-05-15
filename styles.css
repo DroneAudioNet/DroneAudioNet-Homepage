@@ -117,6 +117,20 @@ body {
   color: var(--faint);
 }
 
+.download-links {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.55;
+}
+
+.download-links li {
+  margin: 0 0 12px;
+}
+
+.download-links a {
+  word-break: break-all;
+}
+
 .teaser {
   margin: 14px 0 0;
 }
