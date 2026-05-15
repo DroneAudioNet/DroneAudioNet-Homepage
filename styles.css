@@ -30,7 +30,7 @@ body {
 }
 
 .container {
-  max-width: 980px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 28px 20px 54px;
 }
@@ -283,12 +283,15 @@ code {
 
 .cmp-table {
   width: 100%;
-  min-width: 1250px;
+  max-width: 100%;
+  min-width: 0;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .cmp-table-wide {
-  min-width: 1480px;
+  /* Fits container (~1240px content); was 1480px and caused horizontal scroll. */
+  min-width: 0;
 }
 
 .cmp-table thead th {
@@ -311,7 +314,7 @@ code {
 }
 
 .cmp-table tbody td {
-  min-width: 160px;
+  min-width: 0;
 }
 
 .cmp-table .rowhead {
