@@ -1,29 +1,9 @@
-# DroneAudioNet (Anonymous) – Project Page
+# DroneAudioNet — anonymous project page
 
-This is a minimal anonymous webpage for double-blind paper submission.
+This repository hosts the **static project webpage** (HTML, CSS, audio examples, and spectrogram figures) for double-blind review. It is **not** the training or inference codebase.
 
-## Structure
+**Training, inference, and model code** live in a separate repository:
 
-- `index.html`: the webpage
-- `styles.css`: minimal styling
-- `audio/`: put audio examples here
-- `spectrogram/`: put spectrogram images here
+**[https://github.com/DroneAudioNet/DroneAudioNet-Code](https://github.com/DroneAudioNet/DroneAudioNet-Code)**
 
-## Add your materials
-
-1. Put audio files into `audio/` (e.g. `example1.wav`, `example1.mp3`).
-2. Put spectrogram images into `spectrogram/` (e.g. `example1.png`).
-3. Update the paths in `index.html` to match your filenames.
-
-## Publish with GitHub Pages
-
-In your GitHub repo:
-
-1. Go to **Settings → Pages**
-2. **Build and deployment**
-   - Source: **Deploy from a branch**
-   - Branch: `main` (or `master`) and folder `/ (root)`
-3. Save, then wait for deployment.
-
-Your site will be available at the GitHub Pages URL shown in that settings page.
-
+Clone that repo if you need `train.py`, `inference.py`, configs, checkpoints instructions, and the rest of the DroneAudioNet implementation described in the paper.
